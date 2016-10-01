@@ -20,10 +20,11 @@
 
 
 <?php
-$directory = ".";
+$var1 ;
+$GLOBALS[] = $var = isset($_GET['var']) ? $_GET['var'] : '.';
 function dirMake($var){
-
-    $handle = opendir($var);
+    $ex = '/';
+    $handle = opendir('.' . $ex . $var);
     while (($element = readdir($handle))){
         if($element != "." && $element != '..') {
 
@@ -43,18 +44,17 @@ function dirMake($var){
             echo "<td>$filemodify</td>";
 
             if (is_dir($element)) {
+                echo "<td><a href='nav_sys1.php?var=$element'>Открыть</a></td>";
 
-
-            echo "<td><a href=''>Открыть</a></td>";
-        }
+            }
             echo "</tr>";
 
         }
     }closedir($handle);
 }
-
-//dirMake($directory);
-dirMake("/.idea");
+//echo
+dirMake($var);
+//dirMake("./.idea");
 ?>
     </table>
 </div>
