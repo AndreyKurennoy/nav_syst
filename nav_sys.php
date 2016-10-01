@@ -25,7 +25,10 @@
                 <td> Объект</td> <td>Тип</td> <td>Размер</td> <td>Дата создания</td> <td>Дата модификации</td> <td>Манипуляции</td>
             </tr>
 
+
+
             <?php
+            $directory = ".";
             function dirMake($var){
 
                    $handle = opendir($var);
@@ -49,37 +52,41 @@
                             echo "</tr>";
                         }
                     }closedir($handle);
-
-
             }
-            if ($handle = opendir('.')) {
-                $count = 0;
-                while (false !== ($entry = readdir($handle))) {
-                    if ($entry != "." && $entry != "..") {
-                                $count++;
-                                $size = filesize($entry);
-                                $type = filetype($entry);
-                                $filetime = date('d.m.Y.', filectime($entry));
-                                $filemodify = date('d.m.Y.', fileatime($entry));
-                                echo "<tr>";
-                                if (filetype($entry) == 'dir') {
-                                    echo "<td> <img src ='92.jpg' height='20px' width='30px'> $entry</td> ";
-                                } else
-                                    echo "<td> <img src ='93.jpg' height='25px' width='30px'> $entry</td> ";
 
-                                echo "<td>$type</td>";
-                                echo "<td>$size Байт</td>";
-                                echo "<td>$filetime</td>";
-                                echo "<td>$filemodify</td>";
-                                if (filetype($entry) == 'dir') {
-                                    echo "<td><a href='' onclick='dirMake($entry)'>Открыть</a></td>";
-                                } else
-                                    echo "</tr>";
+            dirMake($directory);
 
-                            }
-                        }
-                        closedir($handle);
-                }
+
+
+
+//            if ($handle = opendir('.')) {
+//                $count = 0;
+//                while (false !== ($entry = readdir($handle))) {
+//                    if ($entry != "." && $entry != "..") {
+//                                $count++;
+//                                $size = filesize($entry);
+//                                $type = filetype($entry);
+//                                $filetime = date('d.m.Y.', filectime($entry));
+//                                $filemodify = date('d.m.Y.', fileatime($entry));
+//                                echo "<tr>";
+//                                if (filetype($entry) == 'dir') {
+//                                    echo "<td> <img src ='92.jpg' height='20px' width='30px'> $entry</td> ";
+//                                } else
+//                                    echo "<td> <img src ='93.jpg' height='25px' width='30px'> $entry</td> ";
+//
+//                                echo "<td>$type</td>";
+//                                echo "<td>$size Байт</td>";
+//                                echo "<td>$filetime</td>";
+//                                echo "<td>$filemodify</td>";
+//                                if (filetype($entry) == 'dir') {
+//                                    echo "<td><a href='?var=$entry' >Открыть</a></td>";
+//                                } else
+//                                    echo "</tr>";
+//
+//                            }
+//                        }
+//                        closedir($handle);
+//                }
             ?>
         </table>
     </div>
