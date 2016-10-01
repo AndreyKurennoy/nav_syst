@@ -72,7 +72,7 @@
                                 echo "<td>$filetime</td>";
                                 echo "<td>$filemodify</td>";
                                 if (filetype($entry) == 'dir') {
-                                    echo "<td><a href='' onclick=''>Открыть</a></td>";
+                                    echo "<td><a href='' onclick='dirMake($entry)'>Открыть</a></td>";
                                 } else
                                     echo "</tr>";
 
