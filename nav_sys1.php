@@ -20,9 +20,10 @@
 
 
 <?php
-$var1 ;
-$GLOBALS[] = $var = isset($_GET['var']) ? $_GET['var'] : '.';
-function dirMake($var){
+ $var = isset($_GET['var']) ? $_GET['var'] : '.';
+
+function dirMake($var)
+{
     $ex = '/';
     $handle = opendir('.' . $ex . $var);
     while (($element = readdir($handle))){
@@ -52,9 +53,9 @@ function dirMake($var){
         }
     }closedir($handle);
 }
-//echo
+
 dirMake($var);
-//dirMake("./.idea");
+
 ?>
     </table>
 </div>
